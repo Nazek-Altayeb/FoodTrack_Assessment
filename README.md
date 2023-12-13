@@ -1,13 +1,12 @@
-## Table of Contents
 
 - [Goal](#goal)
 - [Analysis](#analysis)
   - [Database](#database)
   - [API](#api)
 - [Implementation Plan](#implementation-plan)
-- [Acceptance Criteria](#acceptance-criteria)
-- [Testing](#testing)
-
+- [Test scenario](#test-scenario)
+- [Validation](#validation)
+- [Development](#development)
 
 
 # Goal
@@ -23,7 +22,7 @@ According to the requirements, only one table will be created and added to the e
 And inorder to have an API out of this table, i am going to use the Django Serializer to transform model data into JSON format.
 
 ## Database
-One table `Store` is added to the Django default database, consists of the following `Id, Name, Address, Opening_hours`.
+One table is added to the Django default database, named `Store`, consists of the following fields `Id, Name, Address, Opening_hours`.
 
 ## API
 In my case, it's necessary to transform the `Store` table data into a JSON data, and this will result in having  4  key/value pairs in each JSON list-item.
@@ -42,7 +41,7 @@ The following url /***/ will keep the JOSN form of data.
 10. Define a method to consider paging in case of long list of items.
 11. Consume the `storeAPI`
 
-# Acceptance criteria
+# Test scenario
 1. Run the server, and add the resulted link to the list of Allowed_urls in the settings.py
 2. With the use of Postman, do the following tests using the following link
     - choose GET, as a result all items will be listed in JSON format.
@@ -52,5 +51,12 @@ The following url /***/ will keep the JOSN form of data.
 3. Try to add random ending to the url, not found message will be displayed.
 
 
-# Testing
+# Validation
 - Testing against python files has been perfomed using Python Linter, the following are the results. 
+
+# Development
+
+## Clone
+
+
+## Fork
