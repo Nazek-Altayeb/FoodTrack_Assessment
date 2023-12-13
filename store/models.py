@@ -1,11 +1,11 @@
 from django.db import models
 
 BusinessDays = [
-  (1, ("Monday")),
-  (2, ("Tuesday")),
-  (3, ("Wednesday")),
-  (4, ("Thursday")),
-  (5, ("Friday")),
+  ("Monday", "Monday"),
+  ("Tuesday", "Tuesday"),
+  ("Wednesday", "Wednesday"),
+  ("Thursday", "Thursday"),
+  ("Friday", "Friday"),
 ]
 
 class Address(models.Model):
@@ -17,14 +17,15 @@ class Address(models.Model):
     zipcode = models.IntegerField()
 
     def __str__(self):
-        return self.city + ' ' + self.state + ', ' + self.zipcode
+        return self.city + ' ' + self.state + ', ' + str(self.zipcode)
+
 
 
 class OpeningHours(models.Model):
     """
     Define Opening Hours object
     """
-    day = models.IntegerField(choices=BusinessDays)
+    day = models.CharField(max_length=200,choices=BusinessDays)
     open_at = models.TimeField()
     close_at = models.TimeField()
 
@@ -41,6 +42,8 @@ class Store(models.Model):
     """
     name = models.CharField(max_length=100, null=False, blank=False)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)
-    openingHours = models.ForeignKey(OpeningHours, on_delete=models.CASCADE)
+    openingHours = models.ForeignKey(OpeningHours, related_name="opening_hours", on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
 
