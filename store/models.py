@@ -39,7 +39,8 @@ class Store(models.Model):
     Define Store object
     """
     name = models.CharField(max_length=100, null=False, blank=False)
-    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+    """should find a way to display the address instead of it's ID"""
+    address = models.ForeignKey(Address, related_name="address", on_delete=models.CASCADE)
     openingHours = models.CharField(max_length=200,choices=OpeningHours)
 
     def __str__(self):
@@ -47,4 +48,5 @@ class Store(models.Model):
 
     def save(self, *args, **kwargs):
         super().save()
+
 
