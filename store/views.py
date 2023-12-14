@@ -9,25 +9,6 @@ from .serializers import *
 from rest_framework import generics
 
 
-"""class AddressListView(generics.ListCreateAPIView):
-    queryset = Address.objects.all()
-    serializer_class = AddressSerializer
-
-
-class AddressView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = AddressSerializer
-    queryset = Address.objects.all()
-
-
-class StoreListView(generics.ListCreateAPIView):
-    queryset = Store.objects.all()
-    serializer_class = StoreSerializer
-
-
-class StoreView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = StoreSerializer
-    queryset = Store.objects.all()"""
-
 
 @api_view(['GET', 'POST'])
 def stores(request):

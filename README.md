@@ -56,12 +56,13 @@ The following is an example of the resulted API.
 
 
 # Test scenario
-1. Run the server, and add the resulted link to the list of Allowed_urls in the settings.py
-2. With the use of Postman, do the following tests using the following link
+1. Run the server `python manage.py runserver`
+2. With the use of Postman  API hub , add the following `/stores` to the given link 
     - choose GET, as a result all items will be listed in JSON format.
-    - choose GET and add `/<int>` : `the int must be an existing ID`  to the end of the same url, as a result only the mean item details will be displayed.
-    - choose PUT, enter key/value pairs for the following `Name, Address, Opening_hours`, as a result the new item will be added to the list and displayed as well with a new ID.
-    - choose DELETE, and add `/<int>` : `the int must be an existing`  to the end of the same url, the mean item should be no more exist in the list.
+    - choose GET and add `/<int>` : `the int must be an existing store-Id` to the existing link , as a result only the mean item details will be displayed.
+    - choose POST, enter a new store details except the `Ids`, as a result a new store is created and displayed as well in the response area. 
+    - choose PUT, copy and paste one of the existing stores details, then manipulate the data, as a result the store details will be changed with the new ones.
+    - choose DELETE, and add `/<int>` : `the int must be an existing store-Id`  to the existing link, the mean item should be no more exist in the list.
 3. Try to add random ending to the url, not found message will be displayed.
 
 
@@ -94,3 +95,4 @@ Any changes made to a forked repository do not affect the original repository.
 
 - I programmed the project my self.
 - I benefit from my recent experience in programming backend using Django REST Framework.
+- I look for existing resources and examples, those demostrate Nested Serializers
