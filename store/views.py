@@ -42,7 +42,8 @@ def store_detail(request, pk):
         return Response(storeSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-        pass
+        store.delete()
+        return Response(status =status.HTTP_204_NO_CONTENT)
 
 
 
