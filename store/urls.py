@@ -21,4 +21,5 @@ from store import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('stores/', views.stores),
+    path('stores/<int:pk>', views.store_detail),
 ]

@@ -17,8 +17,8 @@ class Address(models.Model):
     def __str__(self):
         return self.city + ' ' + self.state + ', ' + str(self.zipcode)
 
-    def save(self, *args, **kwargs):
-        super().save()
+    """ def save(self, *args, **kwargs):
+        super().save()"""
     
 
 class Store(models.Model):
@@ -26,13 +26,13 @@ class Store(models.Model):
     Define Store object
     """
     name = models.CharField(max_length=100, null=False, blank=False)
-    address = models.ForeignKey(Address, related_name="address", on_delete=models.CASCADE)
+    address = models.OneToOneField(Address, related_name="address", on_delete=models.CASCADE)
     openingHours = models.CharField(max_length=200,choices=OpeningHours)
 
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        super().save()
+    """def save(self, *args, **kwargs):
+        super().save()"""
 
 
