@@ -8,10 +8,3 @@ def stores(request):
     storeSerializer = StoreSerializer(stores, many=True)
     return JsonResponse({'stores':storeSerializer.data}, safe=False)
 
-
-
-    """def get_opening_hours(self, obj):
-        name = obj.name
-        openingHours = name.openingHours.all()
-        print(f'openingHours: {openingHours}')
-        return FollowerNameSerializer(openingHours, many=True).data"""
