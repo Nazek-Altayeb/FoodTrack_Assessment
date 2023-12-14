@@ -27,13 +27,32 @@ And inorder to have an API out of this table, i am going to use the Django Seria
 The ERD below shows two tables `Store` and `Address`, connected as One To One relationship.
 
 I assumed the data that have been expressed in the requirements could be structured as follow.
+The Table `Address` has got three data members, `name`: a string, `address`: an object reference the `Address` table, and finally the `openingHours`: an optional field, has three options (06:00 AM, 09:00 AM, 12:00PM).
 
 ![ERD](./store/images/ERD.png)
 
 
 ## API
-In my case, it's necessary to transform the `Store` table data into a JSON data, and this will result in having  4  key/value pairs in each JSON list-item.
-The following url /***/ will keep the JOSN form of data.
+In my case, it's necessary to transform the `Store` and `Address` tables data into a JSON data, and this will result in having  key/value pairs.
+The following is an example of the resulted API.
+
+```bash
+{
+    "stores": [
+        {
+            "id": 1,
+            "name": "Nona fahrrad laden",
+            "address": {
+                "id": 1,
+                "city": "Bernau",
+                "state": "Barnim",
+                "zipcode": 16321
+            },
+            "openingHours": "00:06 AM"
+        }
+    ]
+}
+```
 
 
 # Test scenario
