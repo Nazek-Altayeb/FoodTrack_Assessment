@@ -4,11 +4,6 @@ from .models import Store, Address, OpeningHours
 
 class AddressSerializer(serializers.ModelSerializer):
 
-    """  city = serializers.ReadOnlyField()
-    state = serializers.ReadOnlyField()
-    zipcode = serializers.ReadOnlyField()"""
-
-    """store = StoreSerializer(read_only=True, many=False)"""
     class Meta:
         model = Address
         fields = ['id', 'city', 'state', 'zipcode']
@@ -21,7 +16,6 @@ class StoreSerializer(serializers.ModelSerializer):
     """
     name = serializers.ReadOnlyField()
     openingHours = serializers.ReadOnlyField()
-    """address = AddressSerializer(read_only=True, many=False)"""
     address = AddressSerializer()
 
     class Meta:
