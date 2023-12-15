@@ -63,7 +63,7 @@ I named my project in the Github **foodTrack-Assessment**.
 I created and prioritized  the issues according to `MOSCOW`.
 I have followed the iterative approach, each sprint last for 5 days.
 - **Sprint 1 (Dec 13th To 17th, 2023)**
-    - [x] [Setup the development environment](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/1) <span style="color:red">Must have</span>
+    - [x] [Setup the development environment](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/1) <span>$${\color{red}Must have}$$<span>
     - [x] [CRUD store](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/2) <span style="color:red">Must have</span>
     - [x] [Authorization and permission](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/3) <span style="color:red">Must have</span>
     - [x] [Validation and error handling](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/4) <span style="color:red">Must have</span>
