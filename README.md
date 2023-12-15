@@ -21,8 +21,8 @@ Build a simple REST API using Django, which should allow users to perform the fo
 
 
 # Analysis
-According to the requirements, only one table will be created and added to the existing database that Django Framework offers.
-And inorder to have an API out of this table, i am going to use the Django Serializer to transform model data into JSON format.
+According to the requirements, two tables will be created and added to the existing database that Django Framework offers.
+And inorder to have an API out of these tables, i am going to use the Django Serializer to transform the models into JSON format.
 
 
 ## Database
