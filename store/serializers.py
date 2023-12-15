@@ -39,7 +39,6 @@ class StoreSerializer(serializers.ModelSerializer):
         instance.name = validated_data.get('name', instance.name)
         instance.openingHours = validated_data.get('openingHours', instance.openingHours)
         instance.save()
-
         
         existing_address = Address.objects.get(pk=address_id)
         

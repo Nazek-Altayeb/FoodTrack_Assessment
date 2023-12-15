@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from store import views
+from accounts.views import ListUsers, CustomAuthToken
 
 urlpatterns = [
+    path('api/users/', ListUsers.as_view()),
+    path('api/token/auth/', CustomAuthToken.as_view()),
     path('admin/', admin.site.urls),
     path('stores/', views.stores),
     path('stores/<int:pk>', views.store_detail),

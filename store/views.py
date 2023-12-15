@@ -9,7 +9,6 @@ from .serializers import *
 from rest_framework import generics
 
 
-
 @api_view(['GET', 'POST'])
 def stores(request):
     if request.method == 'GET':
