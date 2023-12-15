@@ -8,6 +8,7 @@
 - [Validation](#validation)
 - [Development](#development)
 - [Aknowledgement](#aknowledgement)
+- [Agile development process](#agile-development-process)
 
 
 # Goal
@@ -54,6 +55,18 @@ The following is an example of the resulted API.
     ]
 }
 ```
+
+# Agile development process
+The development process went smoothly with the use of the Github roadmap project board.
+I named my project in the Github **foodTrack-Assessment**.
+I created and prioritized  the issues according to `MOSCOW`.
+I have followed the iterative approach, each sprint last for 5 days.
+- **Sprint 1 (Dec 13th To 17th, 2023)**
+    - [x] [Setup the development environment](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/1) <code style="color:red">Must have</code>
+    - [x] [CRUD store](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/2) <code style="color:red">(Must have)</code>
+    - [x] [Authorization and permission](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/3) <code style="color:red">Must have</code>
+    - [x] [Validation and error handling](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/4) <code style="color:red">Must have</code>
+    - [x] [Add pagination and filtering](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/5) <code style="color:red">Must have</code>
 
 
 # Test scenario
