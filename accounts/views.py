@@ -16,8 +16,8 @@ class ListUsers(APIView):
     * Only admin users are able to access this view.
     """
     authentication_classes = [authentication.TokenAuthentication]
-    """ permission_classes = [permissions.IsAdminUser]"""
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAdminUser]
+    """permission_classes = [permissions.IsAuthenticated]"""
 
     def get(self, request, format=None):
         """

@@ -20,6 +20,8 @@ def stores(request):
         if storeSerializer.is_valid():
             storeSerializer.save()
             return Response(storeSerializer.data, status= status.HTTP_201_CREATED)
+        else:
+            return Response(storeSerializer.errors, status = status.HTTP_400_BAD_REQUEST) 
 
 
 @api_view(['GET', 'PUT', 'DELETE'])       
