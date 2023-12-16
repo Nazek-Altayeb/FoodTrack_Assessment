@@ -1,11 +1,5 @@
 from django.db import models
 
-OpeningHours = [
-  ("00:06 AM", "00:06 AM"),
-  ("00:09 AM", "00:09 AM"),
-  ("00:12 PM", "00:12 PM"),
-]
-
 class Address(models.Model):
     """
     Define address object
@@ -17,6 +11,28 @@ class Address(models.Model):
     def __str__(self):
         return self.city + ' ' + self.state + ', ' + str(self.zipcode)
     
+class OpeningHours(models.Model):
+    """
+    Define Opening Hours object
+    """
+    day = models.CharField(max_length=100, null=False, blank=False)
+    time = models.TimeField(blank=False)
+
+    def __str__(self):
+        return self.day + ' at ' + str(self.time)
+    
+
+class Food(models.Model):
+    """
+    Define Food object
+    """
+    foodName = models.CharField(max_length=100, default= 'not-specified',  null=False, blank=False)
+    salesPerDay = models.IntegerField()
+    returnedItemsPerDay = models.IntegerField()
+
+    def __str__(self):
+        return f'{self.salesPerDay} item have sold today, but {self.returnedItemsPerDay} are considered as waste'
+    
 
 class Store(models.Model):
     """
@@ -24,10 +40,10 @@ class Store(models.Model):
     """
     name = models.CharField(max_length=100, null=False, blank=False)
     address = models.OneToOneField(Address, related_name="address", on_delete=models.CASCADE)
-    openingHours = models.CharField(max_length=200,choices=OpeningHours)
+    openingHours = models.ForeignKey(OpeningHours, related_name="openingHours" , on_delete=models.CASCADE)
+    food = models.ForeignKey(Food, related_name="food" , on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
-
 
 

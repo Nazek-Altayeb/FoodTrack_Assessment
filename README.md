@@ -1,5 +1,6 @@
 
 - [Goal](#goal)
+- [User stories](#user-stories)
 - [Analysis](#analysis)
   - [Database](#database)
   - [API](#api)
@@ -14,25 +15,36 @@
 
 # Goal
 Build a simple REST API using Django, which should allow users to perform the following actions:
-- Create a new store
-- Retrieve a single store by ID
-- Retrieve a list of all stores
-- Update an existing store (with all fields)
-- Delete an existing store
+- Create a new store.
+- Retrieve a single store by ID.
+- Retrieve a list of all stores.
+- Update an existing store (with all fields).
+- Delete an existing store.
 
+
+# User stories
+User stories has been divided and done within fixed iterations, each iteration last for 5 days.
+
+### **Epic 1 - Main functionalities**
+- As a client i can create a `Store` and fill it with data, so i can use it.
+- As a client i can retrieve all  `Stores` data, so i can review them.
+- As a client i can retrieve a single `Store` data, so i can manipulate all of some of it's details.
+- As a client i can update an existing `Store` data, so i can have up to date data.
+- As a client i can remove a `Store` data, so i can keep my API clean for unnecessary data. 
+
+### **Epic 1 - Extend the Store properties**
+- As a client i can retrieve  the `OpeningHours`per each day of every `Store`, so i can update the `OpeningHours` for specific days.
+- As s client i can retrieve the list of `Food` that the `Store` offers, so i can use this data.
+- As a client i can retrieve the `Customers` details per each `Store`, so i can use this data.
 
 # Analysis
-According to the requirements, two tables will be created and added to the existing database that Django Framework offers.
-And inorder to have an API out of these tables, i am going to use the Django Serializer to transform the models into JSON format.
-
+I assumed the data that have been expressed in the requirements could be extended by adding more properties, so the API could express more specific details about the `Store`.
+The process of creating the API will start be creating the database tables first, then i am going to use the Django Serializer to transform the models into JSON format.
 
 ## Database
-The ERD below shows two tables `Store` and `Address`, connected as One To One relationship.
+The ERD below shows 4 tables, mainly the `Store` is connected to three tables `Address` `OpeningHours` `Food` through `OneToOne` and `OneToMany` relationships.
 
-I assumed the data that have been expressed in the requirements could be structured as follow.
-The Table `Address` has got three data members, `name`: a string, `address`: an object reference the `Address` table, and finally the `openingHours`: an optional field, has three options (06:00 AM, 09:00 AM, 12:00PM).
-
-![ERD](./store/images/ERD.png)
+![ERD](./store/images/foodTracks_ERD.png)
 
 
 ## API
@@ -72,7 +84,7 @@ I have followed the iterative approach, each sprint last for 5 days.
 
 # Test scenario
 1. Run the server `python manage.py runserver`
-2. With the use of Postman  API hub , add the following `/stores` to the given link 
+2. With the use of Postman  API hub , add the following `/stores` to the given link.
     - choose GET, as a result all items will be listed in JSON format.
     - choose GET and add `/<int>` : `the int must be an existing store-Id` to the existing link , as a result only the mean item details will be displayed.
     - choose POST, enter a new store details except the `Ids`, as a result a new store is created and displayed as well in the response area. 
