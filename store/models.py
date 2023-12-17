@@ -11,28 +11,7 @@ class Address(models.Model):
     def __str__(self):
         return self.city + ' ' + self.state + ', ' + str(self.zipcode)
     
-class OpeningHours(models.Model):
-    """
-    Define Opening Hours object
-    """
-    day = models.CharField(max_length=100, null=False, blank=False)
-    time = models.TimeField(blank=False)
 
-    def __str__(self):
-        return self.day + ' at ' + str(self.time)
-    
-
-class Food(models.Model):
-    """
-    Define Food object
-    """
-    foodName = models.CharField(max_length=100, default= 'not-specified',  null=False, blank=False)
-    salesPerDay = models.IntegerField()
-    returnedItemsPerDay = models.IntegerField()
-
-    def __str__(self):
-        return f'{self.salesPerDay} item have sold today, but {self.returnedItemsPerDay} are considered as waste'
-    
 
 class Store(models.Model):
     """
@@ -40,10 +19,32 @@ class Store(models.Model):
     """
     name = models.CharField(max_length=100, null=False, blank=False)
     address = models.OneToOneField(Address, related_name="address", on_delete=models.CASCADE)
-    openingHours = models.ForeignKey(OpeningHours, related_name="openingHours" , on_delete=models.CASCADE)
-    food = models.ForeignKey(Food, related_name="food" , on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
 
 
+class OpeningHours(models.Model):
+    """
+    Define Opening Hours object
+    """
+    day = models.CharField(max_length=100, null=False, blank=False)
+    time = models.TimeField(blank=False)
+    store = models.ForeignKey(Store, related_name="openingHours" , on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.day + ' at ' + str(self.time)
+    
+
+class Foods(models.Model):
+    """
+    Define Food object
+    """
+    foodName = models.CharField(max_length=100, default= 'not-specified',  null=False, blank=False)
+    salesPerDay = models.IntegerField()
+    returnedItemsPerDay = models.IntegerField()
+    store = models.ForeignKey(Store, related_name="foods" , on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.salesPerDay} item have sold today, but {self.returnedItemsPerDay} are considered as waste'
+    
