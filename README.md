@@ -44,12 +44,13 @@ The process of creating the API will start be creating the database tables first
 ## Database
 The ERD below shows 4 tables, mainly the `Store` is connected to three tables `Address` `OpeningHours` `Food` through `OneToOne` and `OneToMany` relationships.
 
-![ERD](./store/images/foodTracks_ERD.png)
+![ERD](./store/images/ERD.png)
 
 
 ## API
-In my case, it's necessary to transform the `Store` and `Address` tables data into a JSON data, and this will result in having  key/value pairs.
+In my case, it's necessary to transform the models into a JSON data, and this will result in having  key/value pairs.
 The following is an example of the resulted API.
+This API comes with an ability to edit every nested object and modify it individually, delete it or add a new one.
 
 ![ERD](./store/images/JSON-Results.png)
 
