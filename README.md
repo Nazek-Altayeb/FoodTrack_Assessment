@@ -51,23 +51,8 @@ The ERD below shows 4 tables, mainly the `Store` is connected to three tables `A
 In my case, it's necessary to transform the `Store` and `Address` tables data into a JSON data, and this will result in having  key/value pairs.
 The following is an example of the resulted API.
 
-```bash
-{
-    "stores": [
-        {
-            "id": 1,
-            "name": "Nona fahrrad laden",
-            "address": {
-                "id": 1,
-                "city": "Bernau",
-                "state": "Barnim",
-                "zipcode": 16321
-            },
-            "openingHours": "00:06 AM"
-        }
-    ]
-}
-```
+![ERD](./store/images/JSON-Results.png)
+
 
 # Agile development process
 The development process went smoothly with the use of the Github roadmap project board.
