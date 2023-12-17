@@ -18,7 +18,7 @@ class OpeningHoursSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False)
     day = serializers.CharField()
     time = serializers.TimeField()
-
+    
     class Meta:
         model = OpeningHours
         fields = ['id', 'day', 'time']
@@ -32,7 +32,8 @@ class FoodsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Foods
-        fields = ['id', 'foodName', 'salesPerDay', 'returnedItemsPerDay'] 
+        fields = ['id', 'foodName', 'salesPerDay', 'returnedItemsPerDay']
+       
 
 
 
@@ -51,7 +52,7 @@ class StoreSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         address_data = validated_data.pop('address')
         openingHours_data = validated_data.pop('openingHours')
-        food_data = validated_data.pop('food')
+        food_data = validated_data.pop('foods')
         address = Address.objects.create(**address_data)
         new_store = Store.objects.create(**validated_data, address=address)
         for openingHour in openingHours_data:
@@ -61,8 +62,11 @@ class StoreSerializer(serializers.ModelSerializer):
 
         return new_store
     
+
     def update(self, instance, validated_data):
         address_data = validated_data.pop('address')
+        food_data = validated_data.pop('foods')
+        openingHour_data = validated_data.pop('openingHours')
         address_id = address_data.get('id')
         instance.name = validated_data.get('name', instance.name)
         instance.openingHours = validated_data.get('openingHours', instance.openingHours)

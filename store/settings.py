@@ -64,8 +64,8 @@ REST_FRAMEWORK = {
       #  'rest_framework.permissions.IsAdminUser'
     #],
     
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 10
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+   #  'PAGE_SIZE': 10
 }
 
 ROOT_URLCONF = 'store.urls'

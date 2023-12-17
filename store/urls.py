@@ -24,5 +24,9 @@ urlpatterns = [
     path('api/token/auth/', CustomAuthToken.as_view()),
     path('admin/', admin.site.urls),
     path('stores/', views.stores),
+    path('foods/', views.foods),
+    path('openingHours/', views.openingHours),
     path('stores/<int:pk>', views.store_detail),
+    path('foods/<int:pk>', views.food_detail),
+    path('openingHours/<int:pk>', views.openingHour_detail),
 ]
