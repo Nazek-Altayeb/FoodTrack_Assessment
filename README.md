@@ -66,7 +66,15 @@ I have followed the iterative approach, each sprint last for 5 days.
     - [x] [Authorization and permission](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/3) <span style="color:red">Must have</span>
     - [x] [Validation and error handling](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/4) <span style="color:red">Must have</span>
     - [x] [Add pagination and filtering](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/5) <span style="color:red">Must have</span>
+    - [x] [Extend Store model, add new properties](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/6)<span style="color:red">should have</span>
 
+
+
+# Existing features
+1. Retrieve all `Store` data , update or delete specific Store data according to a given `Id`
+2. Update the `Store` and it's nested objects according to a given `Id`
+3. Retrieve all `Foods` data, update or delete specific Food item according to a given `Id`
+4. Retrieve all `OpeningHours` data, update or delete specific Opening time and day according to a given `Id`
 
 # Test scenario
 1. Run the server `python manage.py runserver`
@@ -76,7 +84,7 @@ I have followed the iterative approach, each sprint last for 5 days.
     - choose POST, enter a new store details except the `Ids`, as a result a new store is created and displayed as well in the response area. 
     - choose PUT, copy and paste one of the existing stores details, then manipulate the data, as a result the store details will be changed with the new ones.
     - choose DELETE, and add `/<int>` : `the int must be an existing store-Id`  to the existing link, the mean item should be no more exist in the list.
-3. Try to add random ending to the url, not found message will be displayed.
+
 
 
 # Validation
