@@ -32,7 +32,7 @@ User stories has been divided and done within fixed iterations, each iteration l
 - As a client i can update an existing `Store` data, so i can have up to date data.
 - As a client i can remove a `Store` data, so i can keep my API clean for unnecessary data. 
 
-### **Epic 1 - Extend the Store properties**
+### **Epic 2 - Extend the Store properties**
 - As a client i can retrieve  the `OpeningHours`per each day of every `Store`, so i can update the `OpeningHours` for specific days.
 - As s client i can retrieve the list of `Food` that the `Store` offers, so i can use this data.
 - As a client i can retrieve the `Customers` details per each `Store`, so i can use this data.
