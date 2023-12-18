@@ -18,10 +18,11 @@ class OpeningHoursSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False)
     day = serializers.CharField()
     time = serializers.TimeField()
+    store_name = serializers.ReadOnlyField(source='store.name')
     
     class Meta:
         model = OpeningHours
-        fields = ['id', 'day', 'time']
+        fields = ['id', 'store_name' ,'day', 'time']
 
 
 class FoodsSerializer(serializers.ModelSerializer):
@@ -53,8 +54,10 @@ class StoreSerializer(serializers.ModelSerializer):
         address_data = validated_data.pop('address')
         openingHours_data = validated_data.pop('openingHours')
         foods = validated_data.pop('foods')
+       
         address = Address.objects.create(**address_data)
         new_store = Store.objects.create(**validated_data, address=address)
+       
         for openingHour in openingHours_data:
             OpeningHours.objects.create(**openingHour, store = new_store)
         for food_item in foods:
