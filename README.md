@@ -26,16 +26,17 @@ Build a simple REST API using Django, which should allow users to perform the fo
 User stories has been divided and done within fixed iterations, each iteration last for 5 days.
 
 ### **Epic 1 - Main functionalities**
-- As a client i can create a `Store` and fill it with data, so i can use it.
-- As a client i can retrieve all  `Stores` data, so i can review them.
-- As a client i can retrieve a single `Store` data, so i can manipulate all of some of it's details.
-- As a client i can update an existing `Store` data, so i can have up to date data.
-- As a client i can remove a `Store` data, so i can keep my API clean for unnecessary data. 
+- As a user i can create a `Store` and fill it with data, so i can use it.
+- As a user i can retrieve all  `Stores` data, so i can review them.
+- As a user i can retrieve a single `Store` data, so i can manipulate all of some of it's details.
+- As a user i can update an existing `Store` data, so i can have up to date data.
+- As a user i can remove a `Store` data, so i can keep my API clean for unnecessary data. 
+- 
 
 ### **Epic 2 - Extend the Store properties**
-- As a client i can retrieve  the `OpeningHours`per each day of every `Store`, so i can update the `OpeningHours` for specific days.
-- As s client i can retrieve the list of `Food` that the `Store` offers, so i can use this data.
-- As a client i can retrieve the `Customers` details per each `Store`, so i can use this data.
+- As a user i can retrieve  the `OpeningHours`per each day of every `Store`, so i can update the `OpeningHours` for specific days.
+- As s user i can retrieve the list of `Foods` that the `Store` offers, so i can use this data.
+- As a user i can retrieve the `Customers` details per each `Store`, so i can use this data.
 
 # Analysis
 I assumed the data that have been expressed in the requirements could be extended by adding more properties, so the API could express more specific details about the `Store`.
@@ -71,7 +72,7 @@ I have followed the iterative approach, each sprint last for 5 days.
 
 
 # Existing features
-1. Retrieve all `Store` data , update or delete specific Store data according to a given `Id`
+1. Retrieve all sets of `Store` data , update or delete specific Store data according to a given `Id`
 2. Update the `Store` and it's nested objects according to a given `Id`
 3. Retrieve all `Foods` data, update or delete specific Food item according to a given `Id`
 4. Retrieve all `OpeningHours` data, update or delete specific Opening time and day according to a given `Id`
