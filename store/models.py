@@ -35,7 +35,7 @@ class OpeningHours(models.Model):
     branch = models.CharField(max_length=100, null=False, blank=False)
 
     def __str__(self):
-        return self.day + ' at ' + str(self.time)
+        return self.day + ' at ' + str(self.open_at)
     
 
 class Foods(models.Model):
