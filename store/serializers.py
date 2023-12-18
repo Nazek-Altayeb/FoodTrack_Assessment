@@ -17,12 +17,12 @@ class AddressSerializer(serializers.ModelSerializer):
 class OpeningHoursSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(required=False)
     day = serializers.CharField()
-    time = serializers.TimeField()
-    store_name = serializers.ReadOnlyField(source='store.name')
+    open_at = serializers.TimeField()
+    branch = serializers.CharField()
     
     class Meta:
         model = OpeningHours
-        fields = ['id', 'store_name' ,'day', 'time']
+        fields = ['id', 'branch' ,'day', 'open_at']
 
 
 class FoodsSerializer(serializers.ModelSerializer):
@@ -30,10 +30,11 @@ class FoodsSerializer(serializers.ModelSerializer):
     foodName = serializers.CharField()
     salesPerDay = serializers.IntegerField()
     returnedItemsPerDay = serializers.IntegerField()
+    store = serializers.ReadOnlyField(source='store.name')
 
     class Meta:
         model = Foods
-        fields = ['id', 'foodName', 'salesPerDay', 'returnedItemsPerDay']
+        fields = ['id', 'store', 'foodName', 'salesPerDay', 'returnedItemsPerDay']
        
 
 
@@ -115,7 +116,7 @@ class StoreSerializer(serializers.ModelSerializer):
                 if OpeningHours.objects.filter(id=openingHour["id"]).exists():
                     c = OpeningHours.objects.get(id=openingHour["id"])
                     c.day = openingHour.get('day', c.day)
-                    c.time = openingHour.get('time', c.time)
+                    c.open_at = openingHour.get('open_at', c.open_at)
                     c.save()
                     kept_openingHours.append(c.id)
                 else:

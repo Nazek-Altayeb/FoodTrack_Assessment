@@ -30,8 +30,9 @@ class OpeningHours(models.Model):
     Define Opening Hours object
     """
     day = models.CharField(max_length=100, null=False, blank=False)
-    time = models.TimeField(blank=False)
+    open_at = models.TimeField(blank=False)
     store = models.ForeignKey(Store, related_name="openingHours" , on_delete=models.CASCADE)
+    branch = models.CharField(max_length=100, null=False, blank=False)
 
     def __str__(self):
         return self.day + ' at ' + str(self.time)
