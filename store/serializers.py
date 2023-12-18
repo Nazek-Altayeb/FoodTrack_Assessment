@@ -38,7 +38,7 @@ class FoodsSerializer(serializers.ModelSerializer):
 
 
 class StoreSerializer(serializers.ModelSerializer):
-
+    id = serializers.IntegerField(required=False)
     name = serializers.CharField()
     address = AddressSerializer()
     openingHours = OpeningHoursSerializer(many= True)
