@@ -66,11 +66,11 @@ I have followed the iterative approach, each sprint last for 5 days.
     - [x] [Authorization and permission](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/3) <span style="color:red">Must have</span>
     - [x] [Validation and error handling](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/4) <span style="color:red">Must have</span>
     - [x] [Add pagination and filtering](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/5) <span style="color:red">Must have</span>
-    - [x] [Extend Store model, add new properties](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/6)<span style="color:red">should have</span>
+    - [x] [Extend Store model, add new properties](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/6)<span style="color:#5319E7">should have</span>
 
 - **Sprint 2 (Dec 18th To 22nd, 2023)**
-    - [x] [Link OpeningHours to specific Branch](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/7)<span style="color:red">should have</span>
-    - [x] [Link Foods to specific Store](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/8)<span style="color:red">should have</span>
+    - [x] [Link OpeningHours to specific Branch](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/7)<span style="color:#5319E7">should have</span>
+    - [x] [Link Foods to specific Store](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/8)<span style="color:#5319E7">should have</span>
 
 
 
