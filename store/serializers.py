@@ -46,6 +46,17 @@ class FoodsSerializer(serializers.ModelSerializer):
     foodName = serializers.CharField()
     salesPerDay = serializers.IntegerField()
     returnedItemsPerDay = serializers.IntegerField()
+
+    class Meta:
+        model = Foods
+        fields = ['id', 'foodName', 'salesPerDay', 'returnedItemsPerDay']
+
+
+class FoodsSerializerDetail(serializers.ModelSerializer):
+    id = serializers.IntegerField(required=False)
+    foodName = serializers.CharField()
+    salesPerDay = serializers.IntegerField()
+    returnedItemsPerDay = serializers.IntegerField()
     store = serializers.ReadOnlyField(source='store.name')
 
     class Meta:

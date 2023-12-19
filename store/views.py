@@ -47,11 +47,11 @@ def openingHours(request):
 def foods(request):
     if request.method == 'GET':
         foods= Foods.objects.all()
-        foodsSerializer = FoodsSerializer(foods, many=True)
+        foodsSerializer = FoodsSerializerDetail(foods, many=True)
         return JsonResponse({'foods':foodsSerializer.data}, safe=False)
         """return Response(storeSerializer.data, status=200)"""
     if request.method == 'POST':
-        foodsSerializer = FoodsSerializer(data = request.data)
+        foodsSerializer = FoodsSerializerDetail(data = request.data)
         if foodsSerializer.is_valid():
             foodsSerializer.save()
             return Response(foodsSerializer.data, status= status.HTTP_201_CREATED)
@@ -89,11 +89,11 @@ def food_detail(request, pk):
         return Response(status= status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        foodSerializer = FoodsSerializer(food_item)
+        foodSerializer = FoodsSerializerDetail(food_item)
         return Response(foodSerializer.data)
 
     elif request.method == 'PUT':
-        foodSerializer = FoodsSerializer(food_item, data = request.data)
+        foodSerializer = FoodsSerializerDetail(food_item, data = request.data)
         if foodSerializer.is_valid():
             foodSerializer.save()
             return Response(foodSerializer.data)
