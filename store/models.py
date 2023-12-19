@@ -4,13 +4,13 @@ class Address(models.Model):
     """
     Define address object
     """
-    city = models.CharField(max_length=200, null=False, blank=False)
-    state = models.CharField(max_length=200, null=False, blank=False)
+    
+    street = models.CharField(max_length=200, null=False, blank=False)
     zipcode = models.IntegerField()
+    city = models.CharField(max_length=200, null=False, blank=False)
 
     def __str__(self):
-        return self.city + ' ' + self.state + ', ' + str(self.zipcode)
-    
+        return self.street + ' ' + str(self.zipcode) + ', ' + self.city
 
 
 class Store(models.Model):

@@ -2,7 +2,7 @@ from rest_framework import  status
 from django.http import JsonResponse
 from rest_framework import serializers
 from .models import Store
-from .serializers import  StoreSerializer
+from .serializers import  StoreSerializer, FoodsSerializer, OpeningHoursSerializer, OpeningHoursSerializerDetail
 from rest_framework.decorators import api_view, api_view
 from rest_framework.response import Response
 from rest_framework.request import Request
@@ -31,11 +31,11 @@ def stores(request):
 def openingHours(request):
     if request.method == 'GET':
         openingHours= OpeningHours.objects.all()
-        openingHoursSerializer = OpeningHoursSerializer(openingHours, many=True)
+        openingHoursSerializer = OpeningHoursSerializerDetail(openingHours, many=True)
         return JsonResponse({'openingHours':openingHoursSerializer.data}, safe=False)
         """return Response(storeSerializer.data, status=200)"""
     if request.method == 'POST':
-        openingHoursSerializer = OpeningHoursSerializer(data = request.data)
+        openingHoursSerializer = OpeningHoursSerializerDetail(data = request.data)
         if openingHoursSerializer.is_valid():
             openingHoursSerializer.save()
             return Response(openingHoursSerializer.data, status= status.HTTP_201_CREATED)
@@ -112,11 +112,11 @@ def openingHour_detail(request, pk):
         return Response(status= status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        openingHoursSerializer = OpeningHoursSerializer(openingHour)
+        openingHoursSerializer = OpeningHoursSerializerDetail(openingHour)
         return Response(openingHoursSerializer.data)
 
     elif request.method == 'PUT':
-        openingHoursSerializer = OpeningHoursSerializer(openingHour, data = request.data)
+        openingHoursSerializer = OpeningHoursSerializerDetail(openingHour, data = request.data)
         if openingHoursSerializer.is_valid():
             openingHoursSerializer.save()
             return Response(openingHoursSerializer.data)

@@ -6,12 +6,12 @@ class AddressSerializer(serializers.ModelSerializer):
 
     id = serializers.IntegerField(required=False)
     city = serializers.CharField()
-    state = serializers.CharField()
+    street = serializers.CharField()
     zipcode = serializers.IntegerField()
 
     class Meta:
         model = Address
-        fields = ['id', 'city', 'state', 'zipcode']
+        fields = ['id', 'city', 'street', 'zipcode']
 
 
 class OpeningHoursSerializer(serializers.ModelSerializer):
@@ -22,7 +22,23 @@ class OpeningHoursSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = OpeningHours
-        fields = ['id', 'branch' ,'day', 'open_at']
+        fields = ['id' ,'day', 'open_at', 'branch']
+    
+
+class OpeningHoursSerializerDetail(serializers.ModelSerializer):
+    id = serializers.IntegerField(required=False)
+    day = serializers.CharField()
+    open_at = serializers.TimeField()
+    store = serializers.ReadOnlyField(source='store.name')
+    branch = serializers.ReadOnlyField()
+    """store_branch = serializers.SerializerMethodField()"""
+    
+    class Meta:
+        model = OpeningHours
+        fields = ['id', 'store', 'branch', 'day', 'open_at']
+
+    def get_store_branch(self, obj):
+        return '{} {}'.format(obj.store, obj.branch)
 
 
 class FoodsSerializer(serializers.ModelSerializer):
@@ -80,7 +96,7 @@ class StoreSerializer(serializers.ModelSerializer):
         """
         existing_address = Address.objects.get(pk=address_id)
         existing_address.city = address_data.get('city', existing_address.city)
-        existing_address.state = address_data.get('state', existing_address.state)
+        existing_address.street = address_data.get('street', existing_address.street)
         existing_address.zipcode = address_data.get('zipcode', existing_address.zipcode)
         existing_address.save()
 
