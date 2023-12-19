@@ -31,14 +31,10 @@ class OpeningHoursSerializerDetail(serializers.ModelSerializer):
     open_at = serializers.TimeField()
     store = serializers.ReadOnlyField(source='store.name')
     branch = serializers.ReadOnlyField()
-    """store_branch = serializers.SerializerMethodField()"""
     
     class Meta:
         model = OpeningHours
         fields = ['id', 'store', 'branch', 'day', 'open_at']
-
-    def get_store_branch(self, obj):
-        return '{} {}'.format(obj.store, obj.branch)
 
 
 class FoodsSerializer(serializers.ModelSerializer):
@@ -73,9 +69,11 @@ class StoreSerializer(serializers.ModelSerializer):
     openingHours = OpeningHoursSerializer(many= True)
     foods = FoodsSerializer(many= True)
 
+
     class Meta:
         model = Store
         fields = ['id', 'name', 'address', 'openingHours', 'foods']
+    depth = 2
 
 
     def create(self, validated_data):
@@ -155,6 +153,21 @@ class StoreSerializer(serializers.ModelSerializer):
         """for openingHour in instance.openingHours:
             if openingHour.id not in kept_openingHours:
                 openingHour.delete()"""
+        return instance
+    
 
-
+    def update_openingHours(self, instance, openingHour):
+        kept_openingHours = []
+        if "id" in openingHour.keys():
+                if OpeningHours.objects.filter(id=openingHour["id"]).exists():
+                    c = OpeningHours.objects.get(id=openingHour["id"])
+                    c.day = openingHour.get('day', c.day)
+                    c.open_at = openingHour.get('open_at', c.open_at)
+                    c.store = openingHour.get('store', c.store)
+                    c.branch = openingHour.get('branch', c.branch)
+                    c.save()
+                    kept_openingHours.append(c.id)
+        else:
+            c = OpeningHours.objects.create(**openingHour, store=instance)
+            kept_openingHours.append(c.id)
         return instance

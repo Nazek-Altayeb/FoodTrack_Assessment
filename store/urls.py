@@ -26,7 +26,9 @@ urlpatterns = [
     path('stores/', views.stores),
     path('foods/', views.foods),
     path('openingHours/', views.openingHours),
+    path('addOpeningHour/<int:pk>', views.add_openingHour),
     path('stores/<int:pk>', views.store_detail),
     path('foods/<int:pk>', views.food_detail),
+    path('addfood/<int:pk>', views.add_food),
     path('openingHours/<int:pk>', views.openingHour_detail),
 ]
