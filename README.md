@@ -1,26 +1,22 @@
 
 - [Goal](#goal)
-- [User stories](#user-stories)
 - [Analysis](#analysis)
+- [User stories](#user-stories)
   - [Database](#database)
   - [API](#api)
 - [Agile development process](#agile-development-process)
 - [Existing features](#existing-features)
 - [Test scenario](#test-scenario)
-- [Validation](#validation)
 - [Development](#development)
 - [Aknowledgement](#aknowledgement)
 
 
-
 # Goal
-Build a simple REST API using Django, which should allow users to perform the following actions:
-- Create a new store.
-- Retrieve a single store by ID.
-- Retrieve a list of all stores.
-- Update an existing store (with all fields).
-- Delete an existing store.
+Build a simple and flexible REST API using Django, the api should consist of a number of nested objects and every nested object could be added individually, modified and deleted also.
 
+# Analysis
+I assumed the data that have been expressed in the `Test case` requirements could be extended by adding more properties, so the API could express more specific details about the `Store`.
+The process of creating the API will start be creating the database tables first, then i am going to use the Django Serializer to transform the models into JSON format, and the functionalities that perform the CRUD.
 
 # User stories
 User stories has been divided and done within fixed iterations, each iteration last for 5 days.
@@ -30,16 +26,17 @@ User stories has been divided and done within fixed iterations, each iteration l
 - As a user i can retrieve all  `Stores` data, so i can review them.
 - As a user i can retrieve a single `Store` data, so i can manipulate all of some of it's details.
 - As a user i can update an existing `Store` data, so i can have up to date data.
-- As a user i can remove a `Store` data, so i can keep my API clean for unnecessary data. 
-- 
+- As a user i can remove a `Store` data, so i can keep my API clean from unnecessary data. 
 
 ### **Epic 2 - Extend the Store properties**
-- As a user i can retrieve  the `OpeningHours`per each day of every `Branch` , so i can update the `OpeningHours` for specific days (considering that every store has got different branches).
-- As s user i can retrieve the list of `Foods` that the `Store` offers, so i can use this data.
+- As a user i can add  `OpeningHours` times individually for specific `store`.
+- As s user i can retrieve the list of `OpeningHours` that the `Store` offers, so i can review this data.
+- As a user i can retrieve  the `OpeningHours` of every `Branch` per each day, so i can update the `OpeningHours` for specific days (considering that every store has got different branches).
+- As a user i can add  `Foods` items  individually for specific `store`.
+- As s user i can retrieve the list of `Foods` that the `Store` offers, so i can review this data.
+- As a user i can update specific  `Foods` item  , so i so i can have up to date `Foods` data.
+- As a user i can remove a `Foods` data, so i can keep my API clean from unnecessary data.  
 
-# Analysis
-I assumed the data that have been expressed in the requirements could be extended by adding more properties, so the API could express more specific details about the `Store`.
-The process of creating the API will start be creating the database tables first, then i am going to use the Django Serializer to transform the models into JSON format.
 
 ## Database
 The ERD below shows 4 tables, mainly the `Store` is connected to three tables `Address` `OpeningHours` `Food` through `OneToOne` and `OneToMany` relationships.
@@ -69,28 +66,45 @@ I have followed the iterative approach, each sprint last for 5 days.
     - [x] [Extend Store model, add new properties](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/6)<span style="color:#5319E7">should have</span>
 
 - **Sprint 2 (Dec 18th To 22nd, 2023)**
-    - [x] [Link OpeningHours to specific Branch](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/7)<span style="color:#5319E7">should have</span>
-    - [x] [Link Foods to specific Store](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/8)<span style="color:#5319E7">should have</span>
+    - [x] [Add opening time individually](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/7)<span style="color:#5319E7">should have</span>
+    - [x] [Add opening time individually](https://github.com/Nazek-Altayeb/FoodTrack_Assessment/issues/8)<span style="color:#5319E7">should have</span>
 
 
 # Existing features
-1. Retrieve all sets of `Store` data , update or delete specific Store data according to a given `Id`
-2. Update the `Store` and it's nested objects according to a given `Id`
-3. Retrieve all `Foods` data, update or delete specific Food item according to a given `Id`
-4. Retrieve all `OpeningHours` data, update or delete specific Opening time and day according to a given `Id`
+1. Retrieve all sets of `Store` data , update or delete specific Store data according to a given `Id`.
+2. Update the `Store` and it's nested objects according to a given `Id`.
+3. Retrieve all `Foods` data.
+4. Add new `Foods` items, according to a given `store_id`.
+5. update or delete specific Food item according to a given `id`.
+6. Retrieve all `OpeningHours` data.
+7. Add new `OpeningHours` times, according to a given `store_id`.
+8. update or delete specific Food item according to a given `id`.
+
 
 # Test scenario
-1. Run the server `python manage.py runserver`
-2. With the use of Postman  API hub , add the following `/stores` to the given link.
-    - choose GET, as a result all items will be listed in JSON format.
-    - choose GET and add `/<int>` : `the int must be an existing store-Id` to the existing link , as a result only the mean item details will be displayed.
-    - choose POST, enter a new store details except the `Ids`, as a result a new store is created and displayed as well in the response area. 
-    - choose PUT, copy and paste one of the existing stores details, then manipulate the data, as a result the store details will be changed with the new ones.
-    - choose DELETE, and add `/<int>` : `the int must be an existing store-Id`  to the existing link, the mean item should be no more exist in the list.
+1. Run the server `python manage.py runserver`, keep the `server link`.
+2. With the use of Postman  API hub (or any similar tool), add  the following urls to the given `server link` and perform following tests.
 
+### Test against the Store 
+    - choose GET, add `/stores` as a result all stores objects will be listed in a JSON format.
+    - choose GET add `/stores/<int>` : `the int must be an existing store-Id` , as a result only the mean store  details will be displayed.
+    - choose POST, add `/stores/` enter a new store details except the `Id`, as a result a new store is created and displayed as well in the response area. 
+    - choose PUT, add  add `/stores`,  copy and paste one of the existing stores details, then manipulate the data, as a result the store details will be changed with the new ones.
+    - choose DELETE, and add `/stores/<int>` : `the int must be an existing store-Id`  to the existing link, the mean item should be no more exist in the list.
 
-# Validation
-- Testing against python files has been perfomed using Python Linter, the following are the results.....(TO DO )
+### Test against the Opening times
+    - choose GET, add `/openingHours` as a result all opening times  objects will be listed in a JSON format.
+    - choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id` , as a result only the mean opening time  details will be displayed.
+    - choose POST, add `/addOpeningHour/<int>` : `the int must be an existing store-Id`enter a new opening time  , as a result a new opening time  is created as a nested object in the specified store. Results will be  displayed in the response area. 
+    - choose PUT, add `/openingHours/<int>` : `the int must be an existing openingHours-Id`,  copy and paste one of the existing opening time  details, then manipulate the data, as a result the opening time details will be changed with the new ones.
+    - choose DELETE, and add `/openingHours/<int>` : `the int must be an existing openingHours-Id`  to the existing link, the mean item should be no more exist in the list.
+
+### Test against the Food 
+    - choose GET, add `/openingHours` as a result all opening times  objects will be listed in a JSON format.
+    - choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id` , as a result only the mean opening time  details will be displayed.
+    - choose POST, add `/addOpeningHour/<int>` : `the int must be an existing store-Id`enter a new opening time  , as a result a new opening time  is created as a nested object in the specified store. Results will be  displayed in the response area. 
+    - choose PUT, add `/openingHours/<int>` : `the int must be an existing openingHours-Id`,  copy and paste one of the existing opening time  details, then manipulate the data, as a result the opening time details will be changed with the new ones.
+    - choose DELETE, and add `/openingHours/<int>` : `the int must be an existing openingHours-Id`  to the existing link, the mean item should be no more exist in the list.
 
 
 # Development

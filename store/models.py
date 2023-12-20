@@ -4,7 +4,6 @@ class Address(models.Model):
     """
     Define address object
     """
-    
     street = models.CharField(max_length=200, null=False, blank=False)
     zipcode = models.IntegerField()
     city = models.CharField(max_length=200, null=False, blank=False)
