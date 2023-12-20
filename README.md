@@ -71,14 +71,14 @@ I have followed the iterative approach, each sprint last for 5 days.
 
 
 # Existing features
-1. Retrieve all sets of `Store` data , update or delete specific Store data according to a given `Id`.
-2. Update the `Store` and it's nested objects according to a given `Id`.
+1. Retrieve all sets of `Store` data , update or delete specific Store data according to a given `store_Id`.
+2. Update the `Store` and it's nested objects according to a given `store_Id`.
 3. Retrieve all `Foods` data.
 4. Add new `Foods` items, according to a given `store_id`.
-5. update or delete specific Food item according to a given `id`.
+5. update or delete specific Food item according to a given `food_id`.
 6. Retrieve all `OpeningHours` data.
 7. Add new `OpeningHours` times, according to a given `store_id`.
-8. update or delete specific Food item according to a given `id`.
+8. update or delete specific Food item according to a given `openingHour_id`.
 
 
 # Test scenario
