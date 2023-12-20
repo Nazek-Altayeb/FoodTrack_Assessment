@@ -156,18 +156,3 @@ class StoreSerializer(serializers.ModelSerializer):
         return instance
     
 
-    def update_openingHours(self, instance, openingHour):
-        kept_openingHours = []
-        if "id" in openingHour.keys():
-                if OpeningHours.objects.filter(id=openingHour["id"]).exists():
-                    c = OpeningHours.objects.get(id=openingHour["id"])
-                    c.day = openingHour.get('day', c.day)
-                    c.open_at = openingHour.get('open_at', c.open_at)
-                    c.store = openingHour.get('store', c.store)
-                    c.branch = openingHour.get('branch', c.branch)
-                    c.save()
-                    kept_openingHours.append(c.id)
-        else:
-            c = OpeningHours.objects.create(**openingHour, store=instance)
-            kept_openingHours.append(c.id)
-        return instance
