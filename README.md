@@ -86,25 +86,25 @@ I have followed the iterative approach, each sprint last for 5 days.
 2. With the use of Postman  API hub (or any similar tool), add  the following urls to the given `server link` and perform following tests.
 
 ### Test against the Store 
-    - choose GET, add `/stores` as a result all stores objects will be listed in a JSON format.
-    - choose GET add `/stores/<int>` : `the int must be an existing store-Id` , as a result only the mean store  details will be displayed.
-    - choose POST, add `/stores/` enter a new store details except the `Id`, as a result a new store is created and displayed as well in the response area. 
-    - choose PUT, add  add `/stores`,  copy and paste one of the existing stores details, then manipulate the data, as a result the store details will be changed with the new ones.
-    - choose DELETE, and add `/stores/<int>` : `the int must be an existing store-Id`  to the existing link, the mean item should be no more exist in the list.
+- choose GET, add `/stores` as a result all stores objects will be listed in a JSON format.
+- choose GET add `/stores/<int>` : `the int must be an existing store-Id` , as a result only the mean store  details will be displayed.
+- choose POST, add `/stores/` enter a new store details except the `Id`, as a result a new store is created and displayed as well in the response area. 
+- choose PUT, add  add `/stores`,  copy and paste one of the existing stores details, then manipulate the data, as a result the store details will be changed with the new ones.
+- choose DELETE, and add `/stores/<int>` : `the int must be an existing store-Id`  to the existing link, the mean item should be no more exist in the list.
 
 ### Test against the Opening times
-    - choose GET, add `/openingHours` as a result all opening times  objects will be listed in a JSON format.
-    - choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id` , as a result only the mean opening time  details will be displayed.
-    - choose POST, add `/addOpeningHour/<int>` : `the int must be an existing store-Id`enter a new opening time  , as a result a new opening time  is created as a nested object in the specified store. Results will be  displayed in the response area. 
-    - choose PUT, add `/openingHours/<int>` : `the int must be an existing openingHours-Id`,  copy and paste one of the existing opening time  details, then manipulate the data, as a result the opening time details will be changed with the new ones.
-    - choose DELETE, and add `/openingHours/<int>` : `the int must be an existing openingHours-Id`  to the existing link, the mean item should be no more exist in the list.
+- choose GET, add `/openingHours` as a result all opening times  objects will be listed in a JSON format.
+- choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id` , as a result only the mean opening time  details will be displayed.
+- choose POST, add `/addOpeningHour/<int>` : `the int must be an existing store-Id`enter a new opening time  , as a result a new opening time  is created as a nested object in the specified store. Results will be  displayed in the response area. 
+- choose PUT, add `/openingHours/<int>` : `the int must be an existing openingHours-Id`,  copy and paste one of the existing opening time  details, then manipulate the data, as a result the opening time details will be changed with the new ones.
+- choose DELETE, and add `/openingHours/<int>` : `the int must be an existing openingHours-Id`  to the existing link, the mean item should be no more exist in the list.
 
 ### Test against the Food 
-    - choose GET, add `/openingHours` as a result all opening times  objects will be listed in a JSON format.
-    - choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id` , as a result only the mean opening time  details will be displayed.
-    - choose POST, add `/addOpeningHour/<int>` : `the int must be an existing store-Id`enter a new opening time  , as a result a new opening time  is created as a nested object in the specified store. Results will be  displayed in the response area. 
-    - choose PUT, add `/openingHours/<int>` : `the int must be an existing openingHours-Id`,  copy and paste one of the existing opening time  details, then manipulate the data, as a result the opening time details will be changed with the new ones.
-    - choose DELETE, and add `/openingHours/<int>` : `the int must be an existing openingHours-Id`  to the existing link, the mean item should be no more exist in the list.
+- choose GET, add `/openingHours` as a result all opening times  objects will be listed in a JSON format.
+- choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id` , as a result only the mean opening time  details will be displayed.
+- choose POST, add `/addOpeningHour/<int>` : `the int must be an existing store-Id`enter a new opening time  , as a result a new opening time  is created as a nested object in the specified store. Results will be  displayed in the response area. 
+- choose PUT, add `/openingHours/<int>` : `the int must be an existing openingHours-Id`,  copy and paste one of the existing opening time  details, then manipulate the data, as a result the opening time details will be changed with the new ones.
+- choose DELETE, and add `/openingHours/<int>` : `the int must be an existing openingHours-Id`  to the existing link, the mean item should be no more exist in the list.
 
 
 # Development
@@ -112,24 +112,25 @@ I have followed the iterative approach, each sprint last for 5 days.
 ## Clone
 Changes made to a cloned repository will affect the original one.
 
-- Navigate to the main page of the repostitory (this could be a forked instance)
-- Click on the **Code** dropdown menu above the list of files
-- Choose a method to copy the URL for the repository: either via **HTTPS**, by using an **SSH key**, or by using **GitHub CLI**
-- In your work environment, open Git Bash and change current directory to target location for cloned repository
-- Type ``git clone`` followed by the copied URL and press enter **Enter**
+- Navigate to the main page of the repostitory (this could be a forked instance).
+- Click on the **Code** dropdown menu above the list of files.
+- Choose a method to copy the URL for the repository: either via **HTTPS**, by using an **SSH key**, or by using **GitHub CLI**.
+- In your work environment, open Git Bash and change current directory to target location for cloned repository.
+- Type `git clone` followed by the copied URL and press enter **Enter**.
+- Create a virtual environment, and install the required libraries, then execute the following command if needed `Set-ExecutionPolicy Unrestricted -Scope Process`, then activate the virtaul environment ` . .venv/Scripts/activate`.
 
 ## Fork
 
 Any changes made to a forked repository do not affect the original repository.
 
-- Log into GitHub and click on repository to download ([FoodTrack_Assessment](https://github.com/Nazek-Altayeb/FoodTrack_Assessment))
-- Click the **Fork** buttonin the top right-hand corner
-- Select a different owner if necessary
-- Click **Create Fork**
+- Log into GitHub and click on repository to download ([FoodTrack_Assessment](https://github.com/Nazek-Altayeb/FoodTrack_Assessment)).
+- Click the **Fork** buttonin the top right-hand corner.
+- Select a different owner if necessary.
+- Click **Create Fork**.
 - The repo is now in your chosen account and can be cloned or changed:
 
 # Aknowledgement
 
 - I programmed the project my self.
 - I benefit from my recent experience in programming backend using Django REST Framework.
-- I look for existing resources and examples, those demostrate Nested Serializers
+- I look for existing resources and examples, those demonstrate Nested Serializers.
