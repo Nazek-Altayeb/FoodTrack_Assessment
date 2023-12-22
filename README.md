@@ -101,7 +101,7 @@ I have followed the iterative approach, each sprint last for 5 days.
 
 ### Test against the Food 
 - choose GET, add `/openingHours` as a result all opening times  objects will be listed in a JSON format.
-- choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id` , as a result only the mean opening time  details will be displayed.
+- choose GET add `/openingHours/<int>` : `the int must be an existing openingHours-Id`, as a result only the mean opening time  details will be displayed.
 - choose POST, add `/addOpeningHour/<int>` : `the int must be an existing store-Id`enter a new opening time, as a result a new opening time  is created as a nested object in the specified store. Results will be  displayed in the response area. 
 - choose PUT, add `/openingHours/<int>` : `the int must be an existing openingHours-Id`,  copy and paste one of the existing opening time  details, then manipulate the data, as a result the opening time details will be changed with the new ones.
 - choose DELETE, and add `/openingHours/<int>` : `the int must be an existing openingHours-Id`  to the existing link, the mean item should be no more exist in the list.
